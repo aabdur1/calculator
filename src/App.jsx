@@ -6,22 +6,33 @@ function App() {
   const [screen, setScreen] = useState("")
   const [storedValue, setStoredValue] = useState(0)
   const [operation, setOperation] = useState("")
+  const [decimal, setDecimal] = useState(".")
 
   function updateScreen(event){
-    setScreen(prevScreen => prevScreen + event.target.value)
+    setScreen(prevScreen => prevScreen.length < 9 
+      ? prevScreen + event.target.value 
+      : prevScreen
+      )
   }
 
   function clearScreen() {
     setScreen("")
     setStoredValue("")
     setOperation("")
+    setDecimal(".")
   } 
+
+  function decimalBtn(event) {
+    updateScreen(event)
+    setDecimal("")
+  }
 
   function calculate(operationType) {
     if (!screen) return
     setStoredValue(Number(screen))
     setScreen("")
     setOperation(operationType)
+    setDecimal(".")
   }
 
   function equals() {
@@ -76,7 +87,7 @@ function App() {
           </div>
           <div className="fourthRow">
             <button className="zero" value="0" onClick={updateScreen}>0</button>
-            <button className="numBtn" value="." onClick={updateScreen}>.</button>
+            <button className="numBtn" value={decimal} onClick={decimalBtn}>.</button>
             <button className="operation" onClick={() => calculate("divide")}>/</button>
           </div> 
         </div>

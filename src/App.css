@@ -12,7 +12,7 @@ body {
   justify-content: center;
   gap: 1rem;
   font-family: Michroma;
-  font-size: 0.8rem;
+  font-size: 1.5rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
@@ -23,7 +23,8 @@ body {
 .thirdRow,
 .fourthRow {
   display: flex;
-  gap: 0.5rem;
+  gap: 2.7rem;
+  margin-bottom: 1rem;
 }
 
 .thirdFourth {
@@ -34,16 +35,18 @@ body {
 
 .bottomRows {
   display: flex;
-  gap: 0.5rem;
+  gap: 2.5rem;
 }
 
 .screen {
-  width: 16rem;
-  height: 3rem;
+  width: 37rem;
+  height: 8rem;
+  margin-bottom: 1rem;
+  padding-right: 1rem;
   font-family: "Sometype Mono";
   font-style: italic;
   font-weight: 400;
-  font-size: 3rem;
+  font-size: 6rem;
   text-align: right;
   color: rgba(0, 0, 0, 0.577);
   background-color: #E8DABF;
@@ -59,40 +62,46 @@ body {
 }
 
 .clear {
-  width: 6.1rem;
+  width: 13.3rem;
+  height: 4.6;
   text-align: right;
   text-indent: 0.6rem;
   color: rgba(0, 0, 0, 0.62);
-  background-color: rgba(178, 243, 173, 0.46);;
+  background-color: rgba(178, 243, 173, 0.46);
   font-family: Michroma;
-  font-size: 0.8rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  border-radius: 0.6rem;
 }
 
 .numBtn,
 .operation {
-  width: 2.8rem;
+  width: 5.3rem;
+  height: 4.6rem;
+  border-radius: 1.25rem;
 }
 
 .zero {
-  width: 6.1rem;
+  width: 13.3rem;
+  height: 4.6rem;
   text-align: left;
+  border-radius: 1.2rem;
 }
 
 .equals {
-  height: 5.6rem;
-  width: 2.8rem;
+  height: 11.1rem;
+  width: 5.3rem;
   color: rgba(0, 0, 0, 0.62);
-  background-color: rgba(243, 173, 173, 0.46);;
+  background-color: rgba(243, 173, 173, 0.46);
   border-radius: 0.4rem;
+  border-radius: 1.2rem;
 }
 
 .numBtn,
 .operation,
 .zero {
-  background-color: rgba(243, 211, 173, 0.46);;
+  background-color: rgba(243, 211, 173, 0.46);
   color: rgba(0, 0, 0, 0.62);
 }
 
@@ -115,8 +124,9 @@ body {
 .operation:hover,
 .zero:hover,
 .equals:hover,
-.clear:hover {
-  background-color: rgb(245, 255, 211);
+.clear:hover{
+  outline: none;
+  background-color: rgba(243, 211, 173, 0.46);
   transform: translateY(4%);
   box-shadow: 
   0 1px 1px hsla(117deg, 0%, 0%, 0.075),
@@ -124,4 +134,12 @@ body {
   0 4px 4px hsl(117deg 0% 0% / 0.075),
   0 12px 12px hsl(117deg 0% 0% / 0.33)
   ;
+}
+
+.clear:hover {
+  background-color: rgba(178, 243, 173, 0.46);
+}
+
+.equals:hover {
+  background-color: rgba(243, 173, 173, 0.46);
 }
