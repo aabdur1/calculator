@@ -16,6 +16,7 @@ body {
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  color: rgba(0, 0, 0, 0.62);
 }
 
 .firstRow,
@@ -66,12 +67,8 @@ body {
   height: 4.6;
   text-align: right;
   text-indent: 0.6rem;
-  color: rgba(0, 0, 0, 0.62);
   background-color: rgba(178, 243, 173, 0.46);
-  font-family: Michroma;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+  color: bisque;
   border-radius: 0.6rem;
 }
 
@@ -94,12 +91,15 @@ body {
   width: 5.3rem;
   color: rgba(0, 0, 0, 0.62);
   background-color: rgba(243, 173, 173, 0.46);
-  border-radius: 0.4rem;
   border-radius: 1.2rem;
 }
 
+.operation {
+  background-color: rgba(243, 211, 173, 0.46);
+  color: rgb(255, 255, 255);
+}
+
 .numBtn,
-.operation,
 .zero {
   background-color: rgba(243, 211, 173, 0.46);
   color: rgba(0, 0, 0, 0.62);
@@ -122,11 +122,9 @@ body {
 
 .numBtn:hover,
 .operation:hover,
-.zero:hover,
-.equals:hover,
-.clear:hover{
+.zero:hover {
   outline: none;
-  background-color: rgba(243, 211, 173, 0.46);
+  background-color: rgba(243, 212, 173, 0.396);
   transform: translateY(4%);
   box-shadow: 
   0 1px 1px hsla(117deg, 0%, 0%, 0.075),
@@ -137,9 +135,22 @@ body {
 }
 
 .clear:hover {
-  background-color: rgba(178, 243, 173, 0.46);
+  background-color: rgba(178, 243, 173, 0.401);
+  transform: translateY(4%);
+  box-shadow: 
+  0 1px 1px hsla(117deg, 0%, 0%, 0.075),
+  0 2px 2px hsl(117deg 0% 0% / 0.075),
+  0 4px 4px hsl(117deg 0% 0% / 0.075),
+  0 12px 12px hsl(117deg 0% 0% / 0.33)
+  ;
 }
 
 .equals:hover {
-  background-color: rgba(243, 173, 173, 0.46);
+  transform: translateY(4%);
+  box-shadow: 
+  0 1px 1px hsla(117deg, 0%, 0%, 0.075),
+  0 2px 2px hsl(117deg 0% 0% / 0.075),
+  0 4px 4px hsl(117deg 0% 0% / 0.075),
+  0 12px 12px hsl(117deg 0% 0% / 0.33)
+  ;
 }
