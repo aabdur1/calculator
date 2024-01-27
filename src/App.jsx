@@ -1,18 +1,14 @@
 import React, { useState } from 'react'
 import './App.css'
-import Number from './components/Number'
-import Operation from './components/Operation'
+
 
 function App() {
   const [screen, setScreen] = useState("")
-  const [operation, setOperation] = useState(null)
+
   const store = []
 
   function updateScreen(event){
-    store += event.target.value
-    setScreen(prevScreen => {
-      prevScreen += event.target.value
-    })
+    setScreen(prevScreen => prevScreen + event.target.value)
   }
 
   function clearScreen() {
@@ -20,41 +16,41 @@ function App() {
   }
 
   function operation(event) {
-    oldStore = store
-    store = []
-    setOperation(event.target.value)
+    store.push(Number(screen) + event.target.value)
+    setScreen("")
   }
+
 
   return (
     <div className='calculator'>
-      <div className="screen">{screen}</div>
+      <input className="screen" value={screen} readOnly></input>
       <div className="firstRow">
-        <Number className="numBtn" value="7" handleClick={updateScreen}>7</Number>
-        <Number className="numBtn" value="8" handleClick={updateScreen}>8</Number>
-        <Number className="numBtn" value="9" handleClick={updateScreen}>9</Number>
-        <Operation className="clear" handleClick={clearScreen}>CLEAR</Operation>
+        <button className="numBtn" value="7" onClick={updateScreen}>7</button>
+        <button className="numBtn" value="8" onClick={updateScreen}>8</button>
+        <button className="numBtn" value="9" onClick={updateScreen}>9</button>
+        <button className="clear" onClick={clearScreen}>CLEAR</button>
       </div>
       <div className="secondRow">
-        <Number className="numBtn" value="4" handleClick={updateScreen}>4</Number>
-        <Number className="numBtn" value="5" handleClick={updateScreen}>5</Number>
-        <Number className="numBtn" value="6" handleClick={updateScreen}>6</Number>
-        <Operation className="operation" handleClick={operation}>-</Operation>
-        <Operation className="operation" handleClick={operation}>+</Operation>
+        <button className="numBtn" value="4" onClick={updateScreen}>4</button>
+        <button className="numBtn" value="5" onClick={updateScreen}>5</button>
+        <button className="numBtn" value="6" onClick={updateScreen}>6</button>
+        <button className="operation" onClick={operation}>-</button>
+        <button className="operation" onClick={operation}>+</button>
       </div>
       <div className="bottomRows">
         <div className="thirdRow">
-          <Number className="numBtn" value="1" handleClick={updateScreen}>1</Number>
-          <Number className="numBtn" value="2" handleClick={updateScreen}>2</Number>
-          <Number className="numBtn" value="3" handleClick={updateScreen}>3</Number>
-          <Operation className="operation" handleClick={operation}>X</Operation>
+          <button className="numBtn" value="1" onClick={updateScreen}>1</button>
+          <button className="numBtn" value="2" onClick={updateScreen}>2</button>
+          <button className="numBtn" value="3" onClick={updateScreen}>3</button>
+          <button className="operation" onClick={operation}>X</button>
         </div>
         <div className="fourthRow">
-          <Number className="zero">0</Number>
-          <Number className="numBtn">.</Number>
-          <Operation className="operation" handleClick={operation}>/</Operation>
+          <button className="zero" value={0} onClick={updateScreen}>0</button>
+          <button className="numBtn">.</button>
+          <button className="operation" onClick={operation}>/</button>
         </div>
         <div className="equals">
-          <Equals className="equals"></Equals>
+          <button className="equals">=</button>
         </div>
       </div>
     </ div>
