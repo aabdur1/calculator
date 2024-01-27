@@ -2,6 +2,7 @@ body {
   margin: 0 auto;
   display: flex;
   justify-content: center;
+  background-color: #6F696F;
 }
 
 .calculator {
@@ -35,19 +36,64 @@ body {
   height: 3rem;
   font-size: 3rem;
   text-align: right;
+  color: rgba(0, 0, 0, 0.577);
+  background-color: #E8DABF;
+  border-radius: 0.3rem;
 }
 
 .clear {
   width: 6.5rem;
   text-align: right;
+  color: black;
+  background-color: #B2F3AD;
 }
 
 .zero {
-  width: 7rem;
+  width: 6.7rem;
   text-align: left;
 }
 
 .equals {
-  margin-left: 0.3rem;
+  margin-left: 0.2rem;
   height: 6rem;
+  color: black;
+  background-color: #F3ADAD;
+  border-radius: 0.4rem;
+}
+
+.numBtn,
+.operation,
+.zero {
+  background-color: #f3d4ad75;
+  color: rgba(0, 0, 0, 0.62);
+}
+
+.numBtn,
+.operation,
+.zero,
+.equals,
+.clear {
+  box-shadow: 
+  0 1px 1px hsla(117deg, 0%, 0%, 0.075),
+  0 2px 2px hsl(117deg 0% 0% / 0.075),
+  0 4px 4px hsl(117deg 0% 0% / 0.075),
+  0 8px 8px hsl(117deg 0% 0% / 0.075),
+  0 16px 16px hsl(117deg 0% 0% / 0.075)
+  ;
+  transition: 250ms;
+}
+
+.numBtn:hover,
+.operation:hover,
+.zero:hover,
+.equals:hover,
+.clear:hover {
+  background-color: rgb(245, 255, 211);
+  transform: translateY(4%);
+  box-shadow: 
+  0 1px 1px hsla(117deg, 0%, 0%, 0.075),
+  0 2px 2px hsl(117deg 0% 0% / 0.075),
+  0 4px 4px hsl(117deg 0% 0% / 0.075),
+  0 12px 12px hsl(117deg 0% 0% / 0.33)
+  ;
 }
