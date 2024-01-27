@@ -11,6 +11,11 @@ body {
   align-items: center;
   justify-content: center;
   gap: 1rem;
+  font-family: Michroma;
+  font-size: 0.8rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 .firstRow,
@@ -32,8 +37,11 @@ body {
 }
 
 .screen {
-  width: 16.5rem;
+  width: 16rem;
   height: 3rem;
+  font-family: "Sometype Mono";
+  font-style: italic;
+  font-weight: 400;
   font-size: 3rem;
   text-align: right;
   color: rgba(0, 0, 0, 0.577);
@@ -42,21 +50,26 @@ body {
 }
 
 .clear {
-  width: 6.5rem;
+  width: 6rem;
   text-align: right;
-  color: black;
+  color: rgba(0, 0, 0, 0.62);
   background-color: #B2F3AD;
+  font-family: Michroma;
+  font-size: 0.8rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
 
 .zero {
-  width: 6.7rem;
+  width: 6.5rem;
   text-align: left;
 }
 
 .equals {
   margin-left: 0.2rem;
-  height: 6rem;
-  color: black;
+  height: 5.6rem;
+  color: rgba(0, 0, 0, 0.62);
   background-color: #F3ADAD;
   border-radius: 0.4rem;
 }
