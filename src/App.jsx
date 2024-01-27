@@ -31,7 +31,7 @@ function App() {
     let result
     switch (operation) {
       case "add":
-        result = currentValue + storedValue
+        result = storedValue + currentValue
         break
       case "subtract":
         result = storedValue - currentValue
