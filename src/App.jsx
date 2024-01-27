@@ -67,17 +67,19 @@ function App() {
         <button className="operation" onClick={() => calculate("add")}>+</button>
       </div>
       <div className="bottomRows">
-        <div className="thirdRow">
-          <button className="numBtn" value="1" onClick={updateScreen}>1</button>
-          <button className="numBtn" value="2" onClick={updateScreen}>2</button>
-          <button className="numBtn" value="3" onClick={updateScreen}>3</button>
-          <button className="operation" onClick={() => calculate("multiply")}>X</button>
+        <div className="thirdFourth">
+          <div className="thirdRow">
+            <button className="numBtn" value="1" onClick={updateScreen}>1</button>
+            <button className="numBtn" value="2" onClick={updateScreen}>2</button>
+            <button className="numBtn" value="3" onClick={updateScreen}>3</button>
+            <button className="operation" onClick={() => calculate("multiply")}>X</button>
+          </div>
+          <div className="fourthRow">
+            <button className="zero" value="0" onClick={updateScreen}>0</button>
+            <button className="numBtn" value="." onClick={updateScreen}>.</button>
+            <button className="operation" onClick={() => calculate("divide")}>/</button>
+          </div> 
         </div>
-        <div className="fourthRow">
-          <button className="zero" value="0" onClick={updateScreen}>0</button>
-          <button className="numBtn" value="." onClick={updateScreen}>.</button>
-          <button className="operation" onClick={() => calculate("divide")}>/</button>
-        </div> 
         <div className="equals">
           <button className="equals" onClick={equals}>=</button>
         </div>
