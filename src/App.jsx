@@ -87,7 +87,7 @@ function App() {
           </div>
           <div className="fourthRow">
             <button className="zero" value="0" onClick={updateScreen}>0</button>
-            <button className="numBtn" value={decimal} onClick={decimalBtn}>.</button>
+            <button className="numBtn" value={decimal} onClick={decimalBtn}>&#183;</button>
             <button className="operation" onClick={() => calculate("divide")}>/</button>
           </div> 
         </div>
