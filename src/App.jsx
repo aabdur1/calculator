@@ -4,8 +4,8 @@ import './App.css'
 
 function App() {
   const [screen, setScreen] = useState("")
-
-  const store = []
+  const [storedValue, setStoredValue] = useState(0)
+  const [operation, setOperation] = useState("")
 
   function updateScreen(event){
     setScreen(prevScreen => prevScreen + event.target.value)
@@ -13,11 +13,40 @@ function App() {
 
   function clearScreen() {
     setScreen("")
+    setStoredValue("")
+    setOperation("")
+  } 
+
+  function calculate(operationType) {
+    if (!screen) return
+    setStoredValue(Number(screen))
+    setScreen("")
+    setOperation(operationType)
   }
 
-  function operation(event) {
-    store.push(Number(screen) + event.target.value)
-    setScreen("")
+  function equals() {
+    if (!operation || !screen) return
+
+    const currentValue = Number(screen)
+    let result
+    switch (operation) {
+      case "add":
+        result = currentValue + storedValue
+        break
+      case "subtract":
+        result = storedValue - currentValue
+        break
+      case "multiply":
+        result = storedValue * currentValue
+        break
+      case "divide":
+        result = storedValue / currentValue
+        break
+      default:
+        break;
+    }
+
+    setScreen(result)
   }
 
 
@@ -34,23 +63,23 @@ function App() {
         <button className="numBtn" value="4" onClick={updateScreen}>4</button>
         <button className="numBtn" value="5" onClick={updateScreen}>5</button>
         <button className="numBtn" value="6" onClick={updateScreen}>6</button>
-        <button className="operation" onClick={operation}>-</button>
-        <button className="operation" onClick={operation}>+</button>
+        <button className="operation" onClick={() => calculate("subtract")}>-</button>
+        <button className="operation" onClick={() => calculate("add")}>+</button>
       </div>
       <div className="bottomRows">
         <div className="thirdRow">
           <button className="numBtn" value="1" onClick={updateScreen}>1</button>
           <button className="numBtn" value="2" onClick={updateScreen}>2</button>
           <button className="numBtn" value="3" onClick={updateScreen}>3</button>
-          <button className="operation" onClick={operation}>X</button>
+          <button className="operation" onClick={() => calculate("multiply")}>X</button>
         </div>
         <div className="fourthRow">
-          <button className="zero" value={0} onClick={updateScreen}>0</button>
-          <button className="numBtn">.</button>
-          <button className="operation" onClick={operation}>/</button>
-        </div>
+          <button className="zero" value="0" onClick={updateScreen}>0</button>
+          <button className="numBtn" value="." onClick={updateScreen}>.</button>
+          <button className="operation" onClick={() => calculate("divide")}>/</button>
+        </div> 
         <div className="equals">
-          <button className="equals">=</button>
+          <button className="equals" onClick={equals}>=</button>
         </div>
       </div>
     </ div>
