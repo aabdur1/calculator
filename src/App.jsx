@@ -6,7 +6,7 @@ function App() {
   const [screen, setScreen] = useState("")
   const [storedValue, setStoredValue] = useState(0)
   const [operation, setOperation] = useState("")
-  const [decimal, setDecimal] = useState(".")
+  const [decimal, setDecimal] = useState(true)
 
   function updateScreen(event){
     setScreen(prevScreen => prevScreen.length < 9 
@@ -19,45 +19,59 @@ function App() {
     setScreen("")
     setStoredValue("")
     setOperation("")
-    setDecimal(".")
+    setDecimal(true)
   } 
 
-  function decimalBtn(event) {
-    updateScreen(event)
-    setDecimal("")
+  function handleDecimal() {
+     if (decimal) {
+      setScreen(prevScreen => prevScreen + ".")
+      setDecimal(false)
+     } else {
+      return
+     }
   }
 
   function calculate(operationType) {
     if (!screen) return
-    setStoredValue(Number(screen))
-    setScreen("")
+    const currentValue = Number(screen)
+    if (storedValue){
+      setScreen("")
+      const result = doCalculation()
+      setStoredValue(result)
+    } else {
+      setStoredValue(currentValue)
+      setScreen("")
+    }
     setOperation(operationType)
-    setDecimal(".")
+    setDecimal(true)
+  }
+
+  function doCalculation() {
+    const currentValue = Number(screen)
+    switch (operation) {
+      case "add":
+        return storedValue + currentValue
+      case "subtract":
+        return storedValue - currentValue
+      case "multiply":
+        return storedValue * currentValue
+      case "divide":
+        if (currentValue === 0) {
+          setScreen(":(")
+          return
+        }
+      default:
+        return currentValue
+    }
   }
 
   function equals() {
     if (!operation || !screen) return
 
-    const currentValue = Number(screen)
-    let result
-    switch (operation) {
-      case "add":
-        result = storedValue + currentValue
-        break
-      case "subtract":
-        result = storedValue - currentValue
-        break
-      case "multiply":
-        result = storedValue * currentValue
-        break
-      case "divide":
-        result = storedValue / currentValue
-        break
-      default:
-        break;
-    }
-
-    setScreen(result)
+    const result = doCalculation()
+    setScreen(String(result))
+    setStoredValue(0)
+    setDecimal(true)
   }
 
 
@@ -87,7 +101,7 @@ function App() {
           </div>
           <div className="fourthRow">
             <button className="zero" value="0" onClick={updateScreen}>0</button>
-            <button className="numBtn" value={decimal} onClick={decimalBtn}>&#183;</button>
+            <button className="numBtn" value={decimal} onClick={handleDecimal}>&#183;</button>
             <button className="operation" onClick={() => calculate("divide")}>/</button>
           </div> 
         </div>
