@@ -4,11 +4,17 @@ import './App.css'
 
 function App() {
   const [screen, setScreen] = useState("")
-  const [storedValue, setStoredValue] = useState(0)
-  const [operation, setOperation] = useState("")
+  const [storedValue, setStoredValue] = useState(null)
+  const [operation, setOperation] = useState(null)
   const [decimal, setDecimal] = useState(true)
 
+  let resulted = null
+
   function updateScreen(event){
+    if (resulted) {
+      setScreen("")
+      resulted = null
+    }
     setScreen(prevScreen => prevScreen.length < 9 
       ? prevScreen + event.target.value 
       : prevScreen
@@ -48,18 +54,18 @@ function App() {
 
   function doCalculation() {
     const currentValue = Number(screen)
+    let result
     switch (operation) {
       case "add":
-        return storedValue + currentValue
+        result = storedValue + currentValue
+        setStoredValue(result)
+        return result
       case "subtract":
         return storedValue - currentValue
       case "multiply":
         return storedValue * currentValue
       case "divide":
-        if (currentValue === 0) {
-          setScreen(":(")
-          return
-        }
+        return storedValue / currentValue
       default:
         return currentValue
     }
@@ -68,10 +74,11 @@ function App() {
   function equals() {
     if (!operation || !screen) return
 
-    const result = doCalculation()
-    setScreen(String(result))
+    resulted = String(doCalculation())
+    setScreen(resulted)
     setStoredValue(0)
     setDecimal(true)
+    return resulted
   }
 
 

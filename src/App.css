@@ -47,7 +47,7 @@ body {
   font-family: "Sometype Mono";
   font-style: italic;
   font-weight: 400;
-  font-size: 6rem;
+  font-size: calc(16px + 9vh);
   text-align: right;
   color: rgba(0, 0, 0, 0.577);
   background-color: #E8DABF;
